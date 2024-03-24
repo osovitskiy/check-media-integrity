@@ -190,8 +190,8 @@ def magick_identify_check(filename):
 def pypdf_check(filename):
     # PDF format
     # Check with specific library
-    pdfobj = pypdf.PdfFileReader(open(filename, "rb"))
-    pdfobj.getDocumentInfo()
+    pdfobj = pypdf.PdfReader(filename)
+    pdfobj.metadata
     # Check with imagemagick
     magick_check(filename, False)
 
