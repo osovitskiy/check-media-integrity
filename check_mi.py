@@ -14,15 +14,16 @@ __status__ = "Beta"
 import sys
 import os
 import time
+import csv
+import argparse
 import textwrap
+from subprocess import Popen, PIPE
+
 import PIL
 from PIL import Image as ImageP
 from wand.image import Image as ImageW
 import PyPDF2
-import csv
 import ffmpeg
-import argparse
-from subprocess import Popen, PIPE
 
 LICENSE = "Copyright (C) 2018  Fabiano Tarlao.\nThis program comes with ABSOLUTELY NO WARRANTY.\n" \
           "This is free software, and you are welcome to redistribute it under GPL3 license conditions"
