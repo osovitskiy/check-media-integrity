@@ -22,8 +22,15 @@ from subprocess import Popen, PIPE
 import PIL
 from PIL import Image as ImageP
 from wand.image import Image as ImageW
-import PyPDF2
 import ffmpeg
+try:
+  import pypdf
+except:
+  try:
+    import PyPDF2 as pypdf
+  except:
+     print("The pypdf or PyPDF2 module must be installed", file=sys.stderr)
+     raise
 
 LICENSE = "Copyright (C) 2018  Fabiano Tarlao.\nThis program comes with ABSOLUTELY NO WARRANTY.\n" \
           "This is free software, and you are welcome to redistribute it under GPL3 license conditions"
@@ -183,7 +190,7 @@ def magick_identify_check(filename):
 def pypdf_check(filename):
     # PDF format
     # Check with specific library
-    pdfobj = PyPDF2.PdfFileReader(open(filename, "rb"))
+    pdfobj = pypdf.PdfFileReader(open(filename, "rb"))
     pdfobj.getDocumentInfo()
     # Check with imagemagick
     magick_check(filename, False)
