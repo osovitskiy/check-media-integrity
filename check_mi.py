@@ -192,6 +192,9 @@ def pypdf_check(filename):
     # Check with specific library
     pdfobj = pypdf.PdfReader(filename)
     pdfobj.metadata
+    for pdfpage in pdfobj.pages:
+        for pdfimage in pdfpage.images:
+            pdfimage.image.transpose(PIL.Image.FLIP_LEFT_RIGHT)
     # Check with imagemagick
     magick_check(filename, False)
 
