@@ -428,6 +428,7 @@ def main():
     task_queue = Queue()
     out_queue = Queue()
     pre_count = 0
+    count = 0
 
     path_iter = itertools.chain.from_iterable(gen_pathlist(p, CONFIG) for p in check_paths)
     for path in path_iter:
