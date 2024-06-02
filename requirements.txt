@@ -1,4 +1,4 @@
 ffmpeg-python==0.2.0
-Pillow-SIMD==9.0.0.post1
+pillow==10.3.0
 pypdf==4.1.0
 Wand==0.6.13
